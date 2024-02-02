@@ -6,18 +6,16 @@
     # wget
     # keepassxc
     # yt-dlp
-    # p7zip
+    p7zip
     # tdesktop
     # killall
-    # xclip
-    # maim
-    # calc
-    # mpv
-    # feh
+    xclip
+    maim
+    calc
     # htop
-    # ranger
+    ranger
     # pulsemixer
-    # tree
+    tree
     # fzf
     # gnome.gnome-disk-utility
     # nextcloud-client

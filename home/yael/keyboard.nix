@@ -79,15 +79,11 @@
       "XF86AudioMicMute" = "pulsemixer --id source-42 --toggle-mute";
 
       # Launch programs
-      "alt + 1" = "firefox";
+      "alt + 1" = "librewolf";
 
       "alt + 2" = "Discord";
 
       "alt + 3" = "nemo";
-
-      "alt + 4" = "alacritty -e ncmpcpp";
-
-      "super + alt + m" = "rofi-mpd -a";
 
       # Brightness control
       "XF86MonBrightness{Up,Down}" = "light -{A,U} 10";

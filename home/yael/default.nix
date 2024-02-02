@@ -19,5 +19,7 @@
     ./gtk-qt.nix
     ./devel.nix
     ./browser.nix
+    ./messaging.nix
+    ./multimedia.nix
   ];
 }
