@@ -4,7 +4,7 @@
 
   home.packages = with pkgs; [
     # wget
-    # keepassxc
+    keepassxc
     # yt-dlp
     p7zip
     # tdesktop
