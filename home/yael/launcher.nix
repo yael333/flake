@@ -39,5 +39,5 @@
   #         border-color = mkLiteral "#A6DA95";
   #       };
   #     };
-  # };
+  };
 }

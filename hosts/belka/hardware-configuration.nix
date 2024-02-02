@@ -6,6 +6,27 @@
 {
   imports = [ ];
 
+    # Bootloader.
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
+
+  boot.initrd.luks.devices."luks-fb8f5a57-4488-4c54-9a10-5dd8606c4c9f".device = "/dev/disk/by-uuid/fb8f5a57-4488-4c54-9a10-5dd8606c4c9f";
+  # Setup keyfile
+  boot.initrd.secrets = {
+    "/crypto_keyfile.bin" = null;
+  };
+
+
+  boot.loader.grub.enableCryptodisk=true;
+
+  boot.initrd.luks.devices."luks-a67be2fd-f7c1-4098-828c-5239cf2a3d0e".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-fb8f5a57-4488-4c54-9a10-5dd8606c4c9f".keyFile = "/crypto_keyfile.bin";
+  #networking.hostName = "nixos"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+
+
   boot.initrd.availableKernelModules = [ "ata_piix" "mptspi" "uhci_hcd" "ehci_pci" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
