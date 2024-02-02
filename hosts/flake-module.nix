@@ -33,7 +33,7 @@ in
 
 {
   flake.nixosConfigurations = {
-    pongo = nixosSystemWithDefaults {
+    belka = nixosSystemWithDefaults {
       system = "x86_64-linux";
       hostName = "belka";
       modules = commonHome;
