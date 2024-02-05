@@ -3,10 +3,10 @@
 
 {
    nix = {
-     package = pkgs.nixUnstable;
-    registry.nixpkgs.flake = inputs.nixpkgs;
-    channel.enable = false;
-    nixPath = lib.singleton config.nix.settings.nix-path;
+    #package = pkgs.nixUnstable;
+    #registry.nixpkgs.flake = inputs.nixpkgs;
+    #channel.enable = false;
+    #nixPath = lib.singleton config.nix.settings.nix-path;
      settings = {
        experimental-features = [
          "nix-command"
@@ -15,7 +15,7 @@
          "auto-allocate-uids"
          "repl-flake"
        ];
-      nix-path = "nixpkgs=flake:nixpkgs";
+      #nix-path = "nixpkgs=flake:nixpkgs";
       use-cgroups = true;
       trusted-users = [
         "@wheel"

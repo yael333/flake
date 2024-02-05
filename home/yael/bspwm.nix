@@ -13,14 +13,17 @@
     enable = true;
     windowManager.bspwm = {
       enable = true;
-      monitors.primary = map toString (lib.range 1 10);
+      monitors = {
+        DP-2 = [ "1" "3" "5" "7" "9" ];
+	DP-1 = [ "2" "4" "6" "8" "10" ];
+      };
       settings = {
-        remove_disabled_monitors = true;
-        remove_unplugged_monitors = true;
+        #remove_disabled_monitors = true;
+        #remove_unplugged_monitors = true;
         normal_border_color = "#6E738D";
         focused_border_color = "#f5bde6"; # catppuccin macchiato
         border_width = 2;
-        window_gap = 15;
+        window_gap = 2;
       };
       rules."Zathura".state = "tiled";
     };

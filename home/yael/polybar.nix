@@ -4,11 +4,7 @@
   services.polybar = {
     enable = true;
     package = pkgs.polybarFull;
-    script = ''
-      polybar centerbar &
-      polybar leftbar &
-      polybar rightbar &
-    '';
+    #script = ''
     # extraConfig = ''
     #   include-file = ${pkgs.fetchurl {
     #     url = "https://github.com/catppuccin/polybar/raw/a9ea53b739d0415c6c2944927645934f9a0e5897/themes/macchiato.ini";
@@ -18,13 +14,13 @@
     config = {
       "section/base" = {
         height = 20;
-        offset-y = 7;
+        offset-y = 2;
         background = "\${colors.base}";
         foreground = "\${colors.text}";
         border-color = "\${colors.mauve}";
         border-size = 2;
-        font-0 = "JetBrains Mono:size=9;2";
-        font-1 = "Font Awesome 6 Free Solid:size=9;2";
+        font-0 = "JetBrains Mono:size=15;2";
+        font-1 = "Font Awesome 6 Free Solid:size=14;2";
         wm-restack = "bspwm";
       };
       "bar/leftbar" = {
@@ -59,8 +55,8 @@
       "bar/rightbar" = {
         "inherit" = "section/base";
         modules-right = "xkeyboard cpu memory pulseaudio date";
-        offset-x = "100%:-293";
-        width = 283;
+        offset-x = "100%:-460";
+        width = 450;
       };
       "module/xkeyboard" = {
         type = "internal/xkeyboard";

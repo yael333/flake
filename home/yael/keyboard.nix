@@ -4,6 +4,7 @@
     options = [ "grp:lalt_lshift_toggle" ];
   };
 
+
   services.sxhkd = {
     enable = true;
     keybindings = {
@@ -48,7 +49,7 @@
       "super + {grave,Tab}" = "bspc {node,desktop} -f last";
 
       # focus or send to the given desktop
-      "super + {_,shift + }{1-9,0}" = "bspc {desktop -f,node -d} '^{1-9,10}'";
+      "super + {_,shift + }{1-9,0}" = "bspc {desktop -f,node -d} '{1-9,10}'";
 
       # preselect the direction
       "super + ctrl + {h,j,k,l}" = "bspc node -p {west,south,north,east}";
@@ -89,7 +90,7 @@
       "XF86MonBrightness{Up,Down}" = "light -{A,U} 10";
 
       # Screenshoting 
-      "ctrl + Print" = "maim -s | xclip -selection clipboard -t image/png";
+      "super + shift + s" = "maim -s | xclip -selection clipboard -t image/png";
 
       "Print" = "maim | xclip -selection clipboard -t image/png && notify-send 'maim' 'Screenshot captured'";
 

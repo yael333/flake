@@ -4,14 +4,16 @@
   programs.git = {
     enable = true;
     userName = "Yael";
-    userEmail = "contact@yael.moe";
+    userEmail = "git@yael.moe";
     ignores = [ "*.swp" "result" ];
+    signing = {
+      key = "31162B8161FBFCC47E870772C6BCF4314FC7F168";
+      signByDefault = true;
+    };
     extraConfig = {
-      # commit.gpgSign = true;
-      # tag.gpgSign = true;
-      # gpg.format = "ssh";
-      # user.signingKey = "~/.ssh/id_ed25519_sk.pub";
-      # push.autoSetupRemote = true;
+      commit.gpgSign = true;
+      tag.gpgSign = true;
+      push.autoSetupRemote = true;
     };
   };
 

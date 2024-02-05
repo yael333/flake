@@ -7,4 +7,8 @@
       PermitRootLogin = "no";
     };
   };
+
+  programs.gnupg.agent = {
+    enable = true;
+  };
 }

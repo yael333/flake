@@ -6,7 +6,8 @@
     alsa.support32Bit = true;
   };
 
-  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
 
-  sound.enable = false;
+  hardware.pulseaudio.enable = false;
+  sound.enable = true;
 }

@@ -5,7 +5,7 @@
     enable = true;
     # Hebrew keyboard.
     xkb.layout = lib.mkDefault "us,il";
-    xkb.options = lib.mkDefault "grp:lalt_lshift_toggle";
+    xkb.options = lib.mkDefault "grp:lalt_lshift_toggle,caps:escape";
     # Disable mouse acceleration.
     libinput = {
       enable = true;

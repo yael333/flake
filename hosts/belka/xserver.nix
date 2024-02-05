@@ -2,11 +2,16 @@
 
 {
   services.xserver = {
-    windowManager.i3.enable = true;
+    windowManager.bspwm.enable = true;
     #videoDrivers = ["nvidia"]; # gotta get a new card ;w; 
     deviceSection = ''
       Option "TearFree" "true"
     '';
+    dpi = 150;
+     #displayManager.setupCommands = ''
+      #${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --off --output DVI-D-1 --off --output DP-1 --mode 1920x1080 --pos 2560x0 --rotate normal --output DP-2 --primary --mode 2
+     #560x1440 --pos 0x0 --rotate normal --output DP-3 --off
+    #'';
   };
 
    #hardware.nvidia = {
@@ -31,7 +36,7 @@
 
     # Enable the Nvidia settings menu,
 	# accessible via `nvidia-settings`.
-    #nvidiaSettings = true;
+    #nvidiaSettings = false;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     #package = config.boot.kernelPackages.nvidiaPackages.stable;

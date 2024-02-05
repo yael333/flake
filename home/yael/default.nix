@@ -21,5 +21,6 @@
     ./browser.nix
     ./messaging.nix
     ./multimedia.nix
+    ./audio.nix
   ];
 }

@@ -4,43 +4,44 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ ];
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")
+    ];
 
-    # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  
+  networking.networkmanager.enable = true;
 
-  boot.initrd.luks.devices."luks-fb8f5a57-4488-4c54-9a10-5dd8606c4c9f".device = "/dev/disk/by-uuid/fb8f5a57-4488-4c54-9a10-5dd8606c4c9f";
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.luks.devices."luks-19131234-41a0-43db-ae7f-e02f698dcbbc".device = "/dev/disk/by-uuid/19131234-41a0-43db-ae7f-e02f698dcbbc";
 
-
-  boot.loader.grub.enableCryptodisk=true;
-
-  boot.initrd.luks.devices."luks-a67be2fd-f7c1-4098-828c-5239cf2a3d0e".keyFile = "/crypto_keyfile.bin";
-  boot.initrd.luks.devices."luks-fb8f5a57-4488-4c54-9a10-5dd8606c4c9f".keyFile = "/crypto_keyfile.bin";
-  #networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-
-
-  boot.initrd.availableKernelModules = [ "ata_piix" "mptspi" "uhci_hcd" "ehci_pci" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/060f8dcb-8599-4f21-af6f-b7ab47643056";
+    { device = "/dev/disk/by-uuid/22c93736-ee64-48be-b6e4-3d09050fce1f";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-a67be2fd-f7c1-4098-828c-5239cf2a3d0e".device = "/dev/disk/by-uuid/a67be2fd-f7c1-4098-828c-5239cf2a3d0e";
+  fileSystems."/data" = {
+    device = "/dev/disk/by-uuid/4C4238AB42389BA0";
+    fsType = "ntfs-3g";
+    options = [ "rw" "uid=1000" ];
+  };
+
+  boot.initrd.luks.devices."luks-406f9f9d-d089-4589-bfda-1a720aa36273".device = "/dev/disk/by-uuid/406f9f9d-d089-4589-bfda-1a720aa36273";
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/D853-5589";
+      fsType = "vfat";
+    };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/fe3b0855-6a44-4b51-80a3-2e11d1ab4d26"; }
+    [ { device = "/dev/disk/by-uuid/a21486f6-a7de-4f62-bebf-9af1c5aa9fb3"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -48,7 +49,8 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.ens33.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp4s0.useDHCP = lib.mkDefault true;
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  #nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

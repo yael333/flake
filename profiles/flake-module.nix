@@ -9,7 +9,7 @@
     profiles-docs = ./docs.nix;
     profiles-impermanence = import ./impermanence.nix { inherit inputs; };
     profiles-laptop = ./laptop.nix;
-    profiles-desktop = ./laptop.nix;
+    #profiles-desktop = ./laptop.nix;
     profiles-misc = ./misc.nix;
     profiles-nix-nixpkgs = import ./nix-nixpkgs.nix { inherit inputs; };
     profiles-opengl = ./opengl.nix;
