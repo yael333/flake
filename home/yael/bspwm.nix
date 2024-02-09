@@ -15,7 +15,7 @@
       enable = true;
       monitors = {
         DP-2 = [ "1" "3" "5" "7" "9" ];
-	DP-1 = [ "2" "4" "6" "8" "10" ];
+	DP-4 = [ "2" "4" "6" "8" "10" ];
       };
       settings = {
         #remove_disabled_monitors = true;
