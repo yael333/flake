@@ -11,6 +11,7 @@ in
       ++ lib.optional config.virtualisation.libvirtd.enable "libvirtd"
       ++ lib.optional config.networking.networkmanager.enable "networkmanager"
       ++ lib.optional config.programs.light.enable "video"
+      ++ lib.optional config.sound.enable "audio"
       ++ lib.optional config.programs.adb.enable "adbusers";
     shell = lib.mkIf config.services.xserver.enable pkgs.zsh; # I only care for ZSH on non-servers
     openssh.authorizedKeys.keys = [

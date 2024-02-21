@@ -7,6 +7,7 @@
   };
 
   security.rtkit.enable = true;
+  boot.kernelModules = ["snd-seq"];
 
   hardware.pulseaudio.enable = false;
   sound.enable = true;
