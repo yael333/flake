@@ -5,5 +5,7 @@
     pavucontrol
     milkytracker
     rtmidi
+    vcv-rack
+    mixxx
   ];
 }

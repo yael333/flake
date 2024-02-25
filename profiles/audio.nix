@@ -7,7 +7,7 @@
   };
 
   security.rtkit.enable = true;
-  boot.kernelModules = ["snd-seq"];
+  boot.kernelModules = ["snd-seq" "usb_midi" "snd_usb_lib"];
 
   hardware.pulseaudio.enable = false;
   sound.enable = true;

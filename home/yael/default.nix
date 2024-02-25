@@ -10,10 +10,8 @@
     ./ssh.nix
     ./git.nix
     ./launcher.nix
-    ./keyboard.nix
-    ./bspwm.nix
+    ./i3.nix
     ./notifications.nix
-    ./polybar.nix
     ./screen-lock.nix
     ./shell.nix
     ./gtk-qt.nix

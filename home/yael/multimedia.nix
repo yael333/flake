@@ -9,7 +9,7 @@
     transmission
     xdg-utils
     xdg-user-dirs
+    steam
+    libreoffice-qt
   ];
-
-
 }

@@ -20,6 +20,7 @@ in
 
   # Needed to make completion available to home-manager.
   environment.pathsToLink = lib.optional isZshSetForUsers "/share/zsh";
+  environment.sessionVariables.TERMINAL = "alacritty";
   programs.zsh = {
     enable = isZshSetForUsers;
     enableGlobalCompInit = false;
